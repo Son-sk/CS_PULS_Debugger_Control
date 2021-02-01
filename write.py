@@ -9,7 +9,7 @@ def convertBase(number, base): # convert format
         return convertBase(i,base)+T[j]
 
 hexdecimal = WatchOption.Hexdecimal
-variable = ["M_SWStep", "M_OpStep", "D_BoilHTset", "D_BoilWTset", "D_A_DATA.OndolTempLimit", "D_RCRTset", "D_RCHTset", "D_RCWTset"]
+variable = ["M_SWStep", "M_OpStep", "D_BoilHTset", "D_BoilWTset", "D_RCRTset", "D_RCHTset", "D_RCWTset"]
 variable_hex = ["M_SWStep", "M_OpStep"]
 path = 'C:\Users\jadu900142\Documents\csp_py/new.txt'
 delay = 0.5
