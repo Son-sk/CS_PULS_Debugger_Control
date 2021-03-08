@@ -14,7 +14,7 @@ Wth = "D_BoilHTset"
 D_Set_Htemp = "C_SetPtr[1]"
 D_Set_Rtemp = "C_SetPtr[2]"
 
-HMode = "F_BLsts1.Bit.b4"
+HMode = "F_BLsts1.Bit.b4" # flow(0) or indoor(1)
 
 def Temp_test(SetTemp, DSet, Watch, txtpath) :
     hexdecimal = WatchOption.Hexdecimal
@@ -48,6 +48,7 @@ def Temp_test(SetTemp, DSet, Watch, txtpath) :
         time.sleep(delay)
 
 def mode_test(DSet, Mode, txtpath) :
+    hexdecimal = WatchOption.Hexdecimal
     while int(debugger.Watch.GetValue(str(DSet), hexdecimal)) != Mode :
         debugger.Watch.SetValue("T_WaitLight", 200)
         debugger.Watch.SetValue("D_SwCom", 0x09)
@@ -61,10 +62,11 @@ def mode_test(DSet, Mode, txtpath) :
     f.close()
 
 
-mode_test(HMode, 0, path)
 
-Temp_test(Set_HTemp, D_Set_Htemp, Wth, path)
+mode_test(HMode, 0, path) # flow mode
 
-mode_test(HMode, 1, path)
+Temp_test(Set_HTemp, D_Set_Htemp, Wth, path) # flow temp
 
-Temp_test(Set_RTemp, D_Set_Rtemp, Wth, path)
+mode_test(HMode, 1, path) # indoor mode
+
+Temp_test(Set_RTemp, D_Set_Rtemp, Wth, path) # indoor temp

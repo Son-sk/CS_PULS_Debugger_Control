@@ -12,6 +12,7 @@
 	#define	f_HtCupsw			(F_OneshotSw.Bit.b10)	//		난방 up 연속 sw
 	#define	f_HtCdnsw			(F_OneshotSw.Bit.b11)	//		난방 down 연속 sw
 
+# F_BLsts1.Byte
     # /*	보일러 상태 정보
 	# - bit0 : 온수 설정 온도 (최상위 bit)
 	# - bit1 : 난방대기 (0 : 가동, 1 : 대기)
@@ -22,3 +23,13 @@
 	# - bit7 : 동결방지운전상태 (0 : 일반, 1 : 동결)	*/
 	# F_BLsts1.Byte = ((BI_MainRecv[2] >> 1) & 0x0f) | ((BI_MainRecv[4] << 3) & 0xf0);
 	# 													/*	boiler 상태 정보 set	*/
+
+# D_BoilOper
+	/*	운전 상태 [A0C0/A0B6/A0B5]
+	- 0x00 : 휴지 상태
+	- 0x10 : 온수 on 상태
+	- 0x20 : 난방 on 상태
+	- 0x30 : 난방 on and 온수 on 상태
+	- 0x40 : 응급 운전 상태
+	- 0x50 : 시운전 상태
+	- 0x70 : error 상태	*/
