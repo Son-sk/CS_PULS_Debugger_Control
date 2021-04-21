@@ -22,13 +22,10 @@ data = str(datetime.datetime.now())+', '
 for i in variable :
     data += i+', '
 f.write(data+'\n')
-
 f.close()
 
 while(True) :
     time.sleep(delay)
-    
-
     i=0
     j=0
     flag = 0
@@ -52,6 +49,3 @@ while(True) :
         f = open(path, 'a')
         f.write(data+'\n')
         f.close()
-            
-    # f.write(data+'\n')
-    # f.close()

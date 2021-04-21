@@ -1,6 +1,4 @@
 
-##hjjhhhkklllll13624251
-##sshhh
 import time, datetime
 
 path = 'C:\Users\jadu900142\Documents\csp_py/teet_temp.txt'
